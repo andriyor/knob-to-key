@@ -12,7 +12,7 @@ from gpiozero import Button
 ENCODER_PATH = '/dev/input/event4'
 # steps-per-period=4 matches this encoder's 4 quadrature edges per detent,
 # so the kernel emits exactly 1 EV_REL per physical click.
-DEBOUNCE_DELAY = 0.015
+DEBOUNCE_DELAY = 0.05 # seconds
 
 ui = UInput({
     ecodes.EV_KEY: [ecodes.KEY_UP, ecodes.KEY_DOWN, ecodes.KEY_ENTER]
