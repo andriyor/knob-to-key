@@ -32,6 +32,21 @@ cat /proc/bus/input/devices
 
 Update `ENCODER_PATH` in `encoder_driver.py` to match (default: `/dev/input/event4`).
 
+Grant access to `/dev/uinput` (required to emit virtual key events).
+
+**Temporary (until next reboot):**
+
+```sh
+sudo chmod 666 /dev/uinput
+```
+
+**Permanent — create a udev rule:**
+
+```sh
+echo 'KERNEL=="uinput", MODE="0666"' | sudo tee /etc/udev/rules.d/99-uinput.rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+
 Run:
 
 ```sh
