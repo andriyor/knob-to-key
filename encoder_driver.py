@@ -9,7 +9,7 @@ from evdev import InputDevice, UInput, ecodes
 from gpiozero import Button
 
 # find it in cat /proc/bus/input/devices
-ENCODER_PATH = '/dev/input/event4'
+ENCODER_PATH = '/dev/input/event5'
 # steps-per-period=4 matches this encoder's 4 quadrature edges per detent,
 # so the kernel emits exactly 1 EV_REL per physical click.
 DEBOUNCE_DELAY = 0.05 # seconds
